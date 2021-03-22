@@ -4,8 +4,11 @@ import entity.PhoneBook;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class PhoneBookCrawler {
+
+    private static final Logger LOGGER = Logger.getLogger(PhoneBookCrawler.class.getName());
 
     /**
      * Implements findPhoneByName() method of PhoneBook
@@ -84,30 +87,30 @@ public class PhoneBookCrawler {
 
         //Exercise 2
         Optional phone = phoneBookCrawler.findPhoneByNameAndPunishIfNothingFound("Mohit");
-        System.out.println(phone.get());
+        LOGGER.info(String.valueOf(phone.get()));
 
         //Exercise 3
         Optional phone2 = phoneBookCrawler.findPhoneByNameAndPrintPhoneBookIfNothingFound("Ravi");
-        System.out.println(phone2.get().toString());
+        LOGGER.info(phone2.get().toString());
 
         //Exercise 5
         Optional phone3 = phoneBookCrawler.findPhoneByNameAndPunishIfNothingFoundUsingStreams("Mohit");
-        System.out.println(phone3.get());
+        LOGGER.info(String.valueOf(phone3.get()));
 
         //Exercise 6
         Optional phone4 = phoneBookCrawler.findPhoneByNameAndPrintPhoneBookIfNothingFoundUsingStreams("Ravi");
-        System.out.println(phone4.get().toString());
+        LOGGER.info(phone4.get().toString());
 
         //Exercise 7
         Optional phone7 = phoneBookCrawler.findPhoneNumberByNameOrNameByPhoneNumber("Mohit",
                 8447507369L);
         if(phone7.isPresent())
         {
-            System.out.println(phone7.get());
+            LOGGER.info(String.valueOf(phone7.get()));
         }
         else
         {
-            System.out.println("Not Found!");
+            LOGGER.info("Not Found!");
         }
     }
 }
